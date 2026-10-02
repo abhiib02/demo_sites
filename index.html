@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Demo sites</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #eef1f4;
+    --ink: #14212b;
+    --muted: #5d6b77;
+    --line: #c9d1d8;
+    --accent: #1f5eff;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #10161b;
+      --ink: #e8edf1;
+      --muted: #8c9aa6;
+      --line: #28333c;
+      --accent: #6c93ff;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Bricolage Grotesque", system-ui, -apple-system, "Segoe UI", sans-serif;
+    line-height: 1.5;
+  }
+  main { max-width: 44rem; margin: 0 auto; padding: 4rem 1.5rem 5rem; }
+  h1 { font-size: clamp(2.4rem, 8vw, 4rem); line-height: 1; margin: 0 0 .75rem; letter-spacing: -.03em; }
+  p.lead { margin: 0 0 3rem; color: var(--muted); }
+  ul { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+  li { border-bottom: 1px solid var(--line); }
+  a.site {
+    display: flex; align-items: baseline; justify-content: space-between; gap: 1rem;
+    padding: 1.1rem .25rem; color: inherit; text-decoration: none;
+  }
+  .name { font-size: 1.6rem; font-weight: 700; letter-spacing: -.01em; }
+  .path { color: var(--muted); font-size: .95rem; }
+  a.site:hover .name, a.site:focus-visible .name { color: var(--accent); }
+  a.site:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .status { color: var(--muted); padding: 1.1rem .25rem; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Demo sites</h1>
+  <p class="lead">Pick a site to open its demo.</p>
+  <ul id="list"></ul>
+  <p class="status" id="status" hidden></p>
+</main>
+
+<script>
+  // ---- Settings -------------------------------------------------------
+  var REPO = "abhiib02/demo_sites";
+  var BRANCH = "master";
+  // Used if the GitHub lookup fails (offline, rate-limited, etc.).
+  // Update this when you add a folder, or leave it: the live lookup finds new ones.
+  var FALLBACK = ["backstage", "famecraft", "gyb", "selectse"];
+  // Folders to hide from the list.
+  var IGNORE = [".github", "node_modules"];
+  // ---------------------------------------------------------------------
+
+  var list = document.getElementById("list");
+  var status = document.getElementById("status");
+
+  function render(names) {
+    list.innerHTML = "";
+    names.forEach(function (name) {
+      var li = document.createElement("li");
+      var a = document.createElement("a");
+      a.className = "site";
+      a.href = "./" + encodeURIComponent(name) + "/";
+      var n = document.createElement("span");
+      n.className = "name";
+      n.textContent = name;
+      var p = document.createElement("span");
+      p.className = "path";
+      p.textContent = "/" + name + "/";
+      a.appendChild(n);
+      a.appendChild(p);
+      li.appendChild(a);
+      list.appendChild(li);
+    });
+    if (!names.length) {
+      status.hidden = false;
+      status.textContent = "No site folders found.";
+    }
+  }
+
+  function keep(name) {
+    return name.charAt(0) !== "." && IGNORE.indexOf(name) === -1;
+  }
+
+  render(FALLBACK);
+
+  fetch("https://api.github.com/repos/" + REPO + "/contents?ref=" + BRANCH)
+    .then(function (r) {
+      if (!r.ok) throw new Error(r.status);
+      return r.json();
+    })
+    .then(function (items) {
+      var names = items
+        .filter(function (i) { return i.type === "dir" && keep(i.name); })
+        .map(function (i) { return i.name; })
+        .sort();
+      if (names.length) render(names);
+    })
+    .catch(function () { /* keep fallback list */ });
+</script>
+</body>
+</html>
