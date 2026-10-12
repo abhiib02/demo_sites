@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        .bartender {
+            width: 100%;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            right: -100%;
+            pointer-events: none;
+            z-index: 9999;
+
+            & .bar {
+                height: 20%;
+                width: 100%;
+                background: black;
+
+            }
+        }
+
+        .enter {
+
+            animation-name: bars-enter;
+            animation-duration: 1s;
+            animation-timing-function: ease;
+            animation-fill-mode: forwards;
+        }
+
+        .exit {
+            translate: -100%;
+            animation-name: bars-exit;
+            animation-duration: 1s;
+            animation-timing-function: ease;
+            animation-fill-mode: forwards;
+
+        }
+
+        .bar:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .bar:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .bar:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        .bar:nth-child(4) {
+            animation-delay: 0.4s;
+        }
+
+        .bar:nth-child(5) {
+            animation-delay: 0.5s;
+        }
+
+        @keyframes bars-enter {
+            from {
+
+                translate: -200%;
+            }
+
+            to {
+
+                translate: -100%;
+            }
+        }
+
+        @keyframes bars-exit {
+            from {
+
+                translate: -100%;
+            }
+
+            to {
+
+                translate: 0%;
+            }
+        }
+
+        @keyframes opacity-anim {
+            from {
+
+                opacity: 0;
+            }
+
+            to {
+
+                opacity: 1;
+            }
+        }
+
+        .m-end-d-center {
+            justify-content: center;
+
+            @media(width<992px) {
+                justify-content: end;
+            }
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- meta tags-->
+    <!-- HTML Meta Tags -->
+    <title>Nxtway Digital| digital marketing | web development | graphic design</title>
+    <meta name="description"
+        content="Nxtway Digital: Leading digital marketing agency offering expert website design & development. Elevate your brands online presence with us.">
+    <link rel="icon" type="image/x-icon" href="../assets/favicon.png">
+    <link rel="canonical" href="https://nxtway.in/" />
+    <!-- Facebook Meta Tags -->
+    <meta property="og:url" content="">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Nxtway Digital| digital marketing | web development | graphic design">
+    <meta property="og:description"
+        content="Nxtway Digital: Leading digital marketing agency offering expert website design & development. Elevate your brands online presence with us.">
+    <meta property="og:image" content="https://nxtway.in/assets/home.jpg">
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="twitter:domain" content="nxtway.in">
+    <meta property="twitter:url" content="https://nxtway.in/">
+    <meta name="twitter:title" content="Nxtway Digital| digital marketing | web development | graphic design">
+    <meta name="twitter:description"
+        content="Nxtway Digital: Leading digital marketing agency offering expert website design & development. Elevate your brands online presence with us.">
+    <meta name="twitter:image" content="https://nxtway.in/assets/home.jpg">
+    <!--style Sheet
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Syncopate:wght@700&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/css/style2.css?v=072426">
+    <link rel="stylesheet" href="/css/anim.css?v=072426">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <style>
+        .swiper {
+            width: 100%;
+            height: 100%;
+        }
+
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background-color: transparent;
+        }
+
+        .swiper-slide img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .swiper-button-next,
+        .swiper-button-prev {
+            scale: 30;
+            color: #0000;
+
+            @media (width<992px) {
+                scale: 1;
+            }
+        }
+    </style>
+    <link rel="preload" as="image" href="/svg/loading.svg">
+</head>
+
+<body>
+    <header class="d-flex">
+        <a href="/" id="logo" class="hide">
+            <img src="/image/small-logo.webp" alt="logo">
+        </a>
+        <a id="menu-btn" data-cursor="" data-cursor-size="2" class="">
+            <img src="/svg/menu-ham.svg" class="pe-none" alt="menu">
+        </a>
+    </header>
+
+    <div id="cursor"></div>
+
+
+
+    <nav class="vh100 menu-window d-flex align-items-center justify-content-center">
+        <div class="container">
+            <ul class="nav-menu-list">
+                <li class="nav-item" data-cursor>
+                    <a href="/" class="style-font heading ">
+                        Home
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/about" class="style-font heading">
+                        About Us
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/get-in-touch" class="style-font heading">
+                        Let's Talk
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/digital-marketing" class="style-font heading">
+                        Digital Marketing
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/graphic-design" class="style-font heading">
+                        Graphics Designing
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/web-dev" class="style-font heading">
+                        Website Development
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/app-development" class="style-font heading">
+                        App Development
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <div class="d-flex justify-content-start">
+                        <a href="https://www.facebook.com/nxtwaystartupbiz" data-cursor data-cursor-size="3"
+                            class="mx-3"><img src="/svg/fb.svg" alt="Facebook"></a>
+                        <a href="https://www.instagram.com/nxtway.startup/" data-cursor data-cursor-size="3"
+                            class="mx-3"><img src="/svg/insta.svg" alt="instagram"></a>
+                        <a href="https://www.linkedin.com/company/nxtway-startup-minds-private-limited/" data-cursor
+                            data-cursor-size="3" class="mx-3"><img src="/svg/linkdin.svg" alt="Linkedin"></a>
+                        <a href="https://wa.me/7428496002?text=Hello" data-cursor data-cursor-size="3" class="mx-3"><img
+                                src="/svg/call.svg" alt="Whatsapp"></a>
+                    </div>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+
+    <div class="loader"></div>
+    <div data-scroll-container>
+        <section class="vh100 grid-center bg-main" id="top" data-scroll-section>
+
+            <div></div>
+            <div class="text-center" data-scroll data-scroll-speed="-2">
+                <div class="logo-element">
+                    <img src="/image/small-logo.webp" class="img-fluid" alt="logo">
+                </div>
+                <hr>
+                <div class="grid-center">
+                    <h1 class="main-tagline w50">EMPOWERING YOUR DIGITAL PRESANCE</h1>
+                </div>
+                <p class="sub-tagline w50">Let us be the catalyst for your digital growth and take your business to new
+                    heights!
+                    Contact us today for a consultation and let's embark on this exciting journey together.</p>
+                <p class=""></p>
+                <div class="d-flex justify-content-center flex-wrap">
+                    <button data-cursor="" data-cursor-size="3"
+                        class="btn theme-button theme-button-red modalbtn_getintouch">Get In Touch</button>
+                    <a href="" data-cursor="" data-cursor-size="3" class="btn theme-button theme-button-white">Call
+                        Now</a>
+                </div>
+
+            </div>
+            <div class="text-center">
+                <p>SCROLL DOWN</p>
+                <img src="/svg/scroll-down.svg" alt="scroll-down">
+            </div>
+
+        </section>
+        <section data-scroll-section>
+            <div class="scroll-headings-container hide-on-mobile">
+                <div class="scroll-heading-rtl" data-scroll data-scroll-direction="horizontal" data-scroll-speed="10">
+                    WEBSITE DEVELOPMENT&nbsp;DIGITAL MARKETING&nbsp;GRAPHICS DESIGNING&nbsp;APP DEVELOPMENT
+                </div>
+                <div class="scroll-heading-ltr" data-scroll data-scroll-direction="horizontal" data-scroll-speed="-10">
+                    GRAPHICS DESIGNING&nbsp;APP DEVELOPMENT&nbsp;WEBSITE DEVELOPMENT&nbsp;DIGITAL MARKETING
+                </div>
+            </div>
+        </section>
+        <section data-scroll-section class="vh100 nxt-theme-flexer style-font container">
+            <a class="flexer-item grid-center" href="#graphics" data-cursor="" data-scroll-to>
+                <p class="text-effect2">GRAPHICS DESIGNING</p>
+            </a>
+            <a class="flexer-item grid-center" href="#digital-marketing" data-cursor="" data-scroll-to>
+                <p class="text-effect2">DIGITAL MARKETING</p>
+            </a>
+            <a class="flexer-item grid-center" href="#web-dev" data-cursor="" data-scroll-to>
+                <p class="text-effect2">WEB DEVELOPMENT</p>
+            </a>
+            <a class="flexer-item grid-center" href="/app-development" data-cursor="">
+                <p class="text-effect2">APP DEVELOPMENT</p>
+            </a>
+        </section>
+
+
+        <section data-scroll-section class="vh100 container scroll-margin" id="graphics">
+
+            <H1 class="nxt-theme-infinite-text style-font " style="--charlength:20; ">
+                GRAPHICS DESIGNING
+            </H1>
+            <div class="nxt-theme-item-viewer first row">
+                <ul class="item-viewer-list col-lg-6 style-font ">
+                    <li class="item" data-img="/assets/services/bid.webp">BRAND IDENTITY DESIGN</li>
+                    <li class="item" data-img="/assets/services/pd.webp">PRINT DESIGN</li>
+                    <li class="item" data-img="/assets/services/dmm.webp">DIGITAL MARKETING MATERIALS</li>
+                    <li class="item" data-img="/assets/services/pcd.webp">PACKAGING DESIGN</li>
+                    <li class="item" data-img="/assets/services/vb.webp">WEBSITE AND APP DESIGN</li>
+                    <li class="item" data-img="/assets/services/info.webp">INFOGRAPHICS AND DATA VISUALIZATION</li>
+                    <li class="item" data-img="/assets/services/ii.webp">ILLUSTRATIONS AND ICONS</li>
+                    <li class="item" data-img="/assets/services/ed.webp">PHOTO EDITING AND RETOUCHING</li>
+                </ul>
+                <div class="item-viewer col-lg-6 hide-on-mobile">
+                    <img src="/assets/services/bid.webp" alt="image">
+                </div>
+            </div>
+
+
+
+        </section>
+        <section data-scroll-section class="vh100 container scroll-margin" id="digital-marketing">
+
+            <H1 class="nxt-theme-infinite-text style-font " style="--charlength:20; ">
+                DIGITAL MARKETING
+            </H1>
+
+            <div class="nxt-theme-item-viewer second row">
+                <ul class="item-viewer-list col-lg-6 style-font ">
+                    <li class="item" data-img="/services/seo.png">SEARCH ENGINE OPTIMIZATION (SEO)</li>
+                    <li class="item" data-img="/services/ppc.webp">PAY-PER-CLICK (PPC) ADVERTISING</li>
+                    <li class="item" data-img="/services/smm.webp">SOCIAL MEDIA MARKETING</li>
+                    <li class="item" data-img="/services/cm.jpg">CONTENT MARKETING</li>
+                    <li class="item" data-img="/services/em.webp">EMAIL MARKETING</li>
+                    <li class="item" data-img="/services/cro.webp">CONVERSION RATE OPTIMIZATION (CRO)</li>
+                    <li class="item" data-img="/services/orm.png">ONLINE REPUTATION MANAGEMENT (ORM)</li>
+                    <li class="item" data-img="/services/wdd.jpg">WEB DESIGN AND DEVELOPMENT</li>
+                </ul>
+                <div class="item-viewer col-lg-6 hide-on-mobile">
+                    <img src="/services/seo.png" alt="image">
+                </div>
+            </div>
+
+
+
+        </section>
+        <section data-scroll-section class="vh100 container scroll-margin" id="web-dev">
+
+            <H1 class="nxt-theme-infinite-text style-font " style="--charlength:20; ">
+                WEB DEVELOPMENT
+            </H1>
+            <div class="nxt-theme-item-viewer third row">
+                <ul class="item-viewer-list col-lg-6 style-font ">
+                    <a href="https://voyagersbeat.com" target="_blank">
+                        <li class="item" data-cursor="Open Link ↗" data-img="/assets/images/vb.webp">VOYAGERS BEAT</li>
+                    </a>
+                    <a href="https://gauragyaayurvedic.com/" target="_blank">
+                        <li class="item" data-cursor="Open Link ↗" data-img="/assets/images/ga.webp">GAURAGYA AYURVEDIC
+                        </li>
+                    </a>
+                    <a href="https://singhnsingh.com/" target="_blank">
+                        <li class="item" data-cursor="Open Link ↗" data-img="/assets/images/sns.webp">SINGH & SINGH</li>
+                    </a>
+                    <a href="https://wyrobo.com/" target="_blank">
+                        <li class="item" data-cursor="Open Link ↗" data-img="/assets/images/wyrobo.webp">WYROBO</li>
+                    </a>
+                    <a href="https://bossautohire.com.au/" target="_blank">
+                        <li class="item" data-cursor="Open Link ↗" data-img="/assets/images/boss.webp">BOSS AUTO HIRE
+                        </li>
+                    </a>
+                    <a href="http://deployoptiqiq.in/" target="_blank">
+                        <li class="item" data-cursor="Open Link ↗" data-img="/assets/images/deployiq.webp">DEPLOY
+                            OPTIQIQ</li>
+                    </a>
+                    <a href="https://gbgroup.com.in" target="_blank">
+                        <li class="item" data-cursor="Open Link ↗" data-img="/assets/images/gb.webp">GB GROUP</li>
+                    </a>
+                    <a href="https://selectse.com.au/" target="_blank">
+                        <li class="item" data-cursor="Open Link ↗" data-img="/assets/images/select.webp">SELECT SOLAR &
+                            ELECTRICAL</li>
+                    </a>
+                    <a href="https://cocoocraft.com/" target="_blank">
+                        <li class="item" data-cursor="Open Link ↗" data-img="/assets/images/cocoo.webp">COCOO CRAFT</li>
+                    </a>
+                    <a href="https://yogiik.com/" target="_blank">
+                        <li class="item" data-cursor="Open Link ↗" data-img="/assets/images/yogiik.webp">YOGIIK</li>
+                    </a>
+                </ul>
+                <div class="item-viewer col-lg-6 hide-on-mobile">
+                    <img src="/assets/images/vb.webp" alt="image">
+                </div>
+            </div>
+
+
+
+        </section>
+        <section data-scroll-section class="vh100 container-fluid  grid-center scroll-margin">
+
+
+            <H1 class="nxt-theme-infinite-text style-font " style="--charlength:8; ">
+                CLIENTS
+            </H1>
+
+            <div class="nxt-theme-inlineText style-font ">
+                <span class="nxt-img-on-hover" data-cursor data-cursor-img="/assets//clients/01.webp">ETHICAL BUSINESS
+                    GROUP</span>
+                <span class="nxt-img-on-hover" data-cursor data-cursor-img="/assets//clients/02.webp">SIGMA TEST AND
+                    RESEARCH
+                    CENTER</span>
+                <span class="nxt-img-on-hover" data-cursor data-cursor-img="/assets//clients/03.webp">RASOL
+                    COMPUTERS</span>
+                <span class="nxt-img-on-hover" data-cursor data-cursor-img="/assets//clients/05.webp">MSME GO</span>
+                <span class="nxt-img-on-hover" data-cursor data-cursor-img="/assets//clients/06.webp">GALAXY ERP</span>
+                <span class="nxt-img-on-hover" data-cursor data-cursor-img="/assets//clients/08.webp">AASAAN</span>
+                <span class="nxt-img-on-hover" data-cursor data-cursor-img="/assets//clients/07.webp">VAASTU
+                    NARESH</span>
+                <span class="nxt-img-on-hover" data-cursor data-cursor-img="/assets//clients/16.webp">JBJ FINTECH PVT.
+                    LTD</span>
+                <span class="nxt-img-on-hover" data-cursor data-cursor-img="/assets//clients/20.webp">SANATANI</span>
+                <span class="nxt-img-on-hover" data-cursor data-cursor-img="/assets//clients/13.webp">PARAG MILK & ICE
+                    CREAM</span>
+            </div>
+            <div></div>
+        </section>
+
+        <section data-scroll-section class="vh100 container grid-center scroll-margin">
+
+            <H1 class="nxt-theme-infinite-text no-anim style-font " style="--charlength:8; ">
+                WHAT OUR CLIENTS SAYS
+            </H1>
+
+            <div class="swiper clientsays">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide text-start">
+                        <blockquote class="dull-textColor ">
+                            NxtWay absolutely knocked it out of the park
+                            with our eCommerce site, Gauragya Ayurvedic!
+                            Their professional team delivered an
+                            intuitive, visually appealing, and
+                            user-friendly site that truly encapsulates
+                            our brand. Fantastic communication, timely
+                            delivery, and top-notch post-launch support.
+                            Highly recommended for anyone seeking a
+                            top-tier web development experience! </blockquote>
+                        <p>Saubhagya Saxena / Chief Executive
+                            Officer </p>
+                        <p>Gauragya Ayurvedic</p>
+                    </div>
+                    <div class="swiper-slide text-start">
+                        <blockquote class="dull-textColor ">
+                            NxtWay did an outstanding job with our site,
+                            nxtwaystartup.com. They combined their
+                            technical prowess with innovative thinking
+                            to deliver a sleek, user-friendly website
+                            that exceeded our expectations. Their
+                            professionalism and commitment to customer
+                            satisfaction is unmatched. Highly recommend
+                            their services! </blockquote>
+                        <p>Varun Bahel / Co Founder of
+                            Nxtwaystartup </p>
+                        <p>Nxtwaystartup.com</p>
+                    </div>
+                    <div class="swiper-slide text-start">
+                        <blockquote class="dull-textColor ">
+                            NxtWay truly surpassed our expectations with
+                            the development of our eCommerce site,
+                            Yogiik.com. Their blend of professionalism,
+                            creativity, and technical prowess resulted
+                            in an engaging, user-friendly website that
+                            has been a game changer for our business.
+                            Exceptional service, prompt delivery, and
+                            excellent aftercare. Highly recommended! </blockquote>
+                        <p>N . D / Yogiik Owner </p>
+                        <p>Yogiik.com</p>
+                    </div>
+                    <div class="swiper-slide text-start">
+                        <blockquote class="dull-textColor ">
+                            NXTway has the best logo designers by name sawan. He understood our requirement in less than
+                            5mins and delivered the outcome in less than half an hour. His expertise is next well.
+                        </blockquote>
+                        <p>Karan Kumar / Deploy OPTIQIQ founder </p>
+                        <p>DeployIQ.in</p>
+                    </div>
+                </div>
+                <div class="swiper-button-next nxt" data-cursor=">" data-cursor-size="2"></div>
+                <div class="swiper-button-prev prev" data-cursor="<" data-cursor-size="2"></div>
+
+            </div>
+
+        </section>
+
+        <section data-scroll-section class="vh100 container grid-center scroll-margin">
+
+            <h1 class="nxt-theme-infinite-text no-anim style-font " style="--charlength:8; ">
+                WHY CHOOSE NXTWAY ?
+            </h1>
+            <div>
+                <div class="theme-textColor mb-4">
+                    <h4 class="style-font">TAILORED STRATEGIES</h4>
+                    <p>We understand that every business is unique. Our team crafts personalized strategies to address
+                        your specific goals and challenges.</p>
+                </div>
+
+                <div class="theme-textColor mb-4">
+                    <h4 class="style-font">EXPERIENCED TEAM</h4>
+                    <p>Our team consists of skilled professionals who stay up-to-date with the latest industry trends
+                        and best practices.</p>
+                </div>
+
+                <div class="theme-textColor mb-4">
+                    <h4 class="style-font">TRANSPARENCY</h4>
+                    <p>We believe in fostering transparent and honest relationships with our clients. You'll receive
+                        regular reports and updates on the progress of your campaigns.</p>
+                </div>
+
+                <div class="theme-textColor mb-4">
+                    <h4 class="style-font">PROVEN RESULTS</h4>
+                    <p>We have a track record of delivering tangible results and helping businesses achieve their
+                        digital marketing objectives.</p>
+                </div>
+
+                <div class="theme-textColor mb-4">
+                    <h4 class="style-font">CUSTOMER-CENTRIC APPROACH</h4>
+                    <p>Your success is our success. We prioritize your satisfaction and work tirelessly to exceed your
+                        expectations.</p>
+                </div>
+
+            </div>
+            <div></div>
+        </section>
+
+        <section id="getintouch" data-scroll-section class="vh100 container  scroll-margin">
+            <h1 class="nxt-theme-infinite-text no-anim style-font " style="--charlength:8; ">
+                GET IN TOUCH
+            </h1>
+
+            <div class="row">
+                <div class="col-lg-6 grid-center">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3501.680370095898!2d77.10122807024095!3d28.63934023265321!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa5b5b0e43e557d1d%3A0x8f17739702f9197b!2sNxtway%20Startup%20Minds%20Private%20Limited!5e0!3m2!1sen!2sin!4v1701253447511!5m2!1sen!2sin"
+                        width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <div class="col-lg-6 grid-center">
+                    <div style="width:100%;">
+                        <form method="POST" action="https://nxtwaystartup.com/register">
+                            <input type="hidden" id="lname" name="page" value="https://nxtway.in/thanks" />
+                            <input type="hidden" id="lname" name="lname" value="from Nxtway.in" />
+                            <div class="style-form-control">
+                                <label for="">Name</label>
+                                <input type="text" name="fname" />
+                            </div>
+                            <div class="style-form-control">
+                                <label for="">Contact</label>
+                                <input type="number" name="phone" />
+                            </div>
+                            <div class="style-form-control">
+                                <label for="">Email Address</label>
+                                <input type="email" name="email" />
+                            </div>
+                            <div class="style-form-control">
+                                <label for="">What Service You Want</label>
+                                <select class="form-select" name="data" required="">
+                                    <option value="" style="color:#333;" disabled="" selected="">Select Service you want
+                                    </option>
+                                    <option value="Graphics Service">Graphics Service</option>
+                                    <option value="Digital Marketing Service">Digital Marketing Service</option>
+                                    <option value="Brand Identity Service">Brand Identity Service</option>
+                                    <option value="App Development">App Development</option>
+
+                                    <option value="Website Development">Website Development</option>
+                                    <option value="Website Redesign">Website Redesign</option>
+
+
+
+
+                                </select>
+                            </div>
+                            <div class="grid-center">
+                                <button type="submit" class="btn theme-button theme-button-white">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer data-scroll-section class="border-top  container theme-textColor">
+            <div class="row py-4">
+                <div class="col-lg-3">
+                    <h3 class="heading">ABOUT US</h3>
+                    <p class="">
+                        We're here not to talk about ourselves - we're here to talk
+                        About you, your company, your product, and your goals.
+                    </p>
+                    <p>
+                        NXTWAY DIGITAL STUDIO IS OWNED BY <br /><a href="https://nxtwaystartup.com/">NXTWAY STARTUP
+                            MINDS
+                            PRIVATE LIMITED</a>
+                    </p>
+                </div>
+                <div class="col-lg-3">
+                    <h3 class="heading">LINKS</h3>
+                    <ul class="">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/graphic-design">Graphic Design</a></li>
+                        <li><a href="/digital-marketing">Digital Marketing</a></li>
+                        <li><a href="/about">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h3 class="heading">CONTACT</h3>
+                    <ul class="">
+                        <li>
+                            <a href="mailto:INFO@NXTWAYSTARTUP.IN" data-cursor="Mail Now"
+                                data-cursor-size="1">INFO@NXTWAYSTARTUP.IN</a>
+                        </li>
+                        <li><a href="tel:+918800596300" data-cursor="Call Now" data-cursor-size="1">8800596300</a></li>
+                        <li><a href="tel:+918800596303" data-cursor="Call Now" data-cursor-size="1">8800596303</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h3 class="heading">SOCIAL LINKS</h3>
+                    <ul class="">
+                        <li>
+                            <a href="https://www.instagram.com/nxtway.startup/" data-cursor="Follow Us"
+                                data-cursor-size="1">Instagram</a>
+                        </li>
+                        <li>
+                            <a href="https://www.linkedin.com/company/nxtway-startup-minds-private-limited/"
+                                data-cursor="Connect With Us" data-cursor-size="1">Linkedin</a>
+                        </li>
+                        <li>
+                            <a href="https://www.facebook.com/nxtwaystartupbiz" data-cursor="Like Us"
+                                data-cursor-size="1">Facebook</a>
+                        </li>
+                        <li>
+                            <a href="https://wa.me/7428496002?text=Hello" data-cursor="Let's Have a Chat"
+                                data-cursor-size="1">Whatsapp</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="d-flex justify-content-between border-top  pt-3 ">
+                <span class="text-start">2026 NXTWAY DIGITAL STUDIO . ALL RIGHTS RESERVED</span>
+                <span class="text-end "><a href="#">Designed and Developed By</a> Our Developers</span>
+            </div>
+        </footer>
+
+        <a id="backtotop" class="hide" href="#top" data-scroll-to>
+            <img src="/svg/scroll-down.svg" alt="Scroll-top">
+        </a>
+    </div>
+    <dialog id="modal_getintouch" class="theme-modal fade-in">
+        <button class="closemodal_getintouch btn theme-button-circle theme-button-red">X</button>
+        <form method="POST" action="https://nxtwaystartup.com/register">
+            <input type="hidden" id="lname" name="page" value="https://nxtway.in/thanks" />
+            <input type="hidden" id="lname" name="lname" value="from Nxtway.in" />
+            <div class="style-form-control">
+                <label for="">Name</label>
+                <input type="text" name="fname" />
+            </div>
+            <div class="style-form-control">
+                <label for="">Contact</label>
+                <input type="number" name="phone" />
+            </div>
+            <div class="style-form-control">
+                <label for="">Email Address</label>
+                <input type="email" name="email" />
+            </div>
+            <div class="style-form-control">
+                <label for="">What Service You Want</label>
+                <select class="form-select" name="data" required="">
+                    <option value="" style="color:#333;" disabled="" selected="">Select Service you want</option>
+                    <option value="Graphics Service">Graphics Service</option>
+                    <option value="Digital Marketing Service">Digital Marketing Service</option>
+                    <option value="Brand Identity Service">Brand Identity Service</option>
+                    <option value="App Development">App Development</option>
+
+                    <option value="Website Development">Website Development</option>
+                    <option value="Website Redesign">Website Redesign</option>
+
+
+
+
+                </select>
+            </div>
+            <div class="grid-center">
+                <button type="submit" class="btn theme-button theme-button-white">Submit</button>
+            </div>
+        </form>
+    </dialog>
+
+
+
+
+
+    <!--site developed by abhishek bhardwaj https://bhardwaj.netlify.app-->
+
+
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.js"></script>
+    <script>
+        (function () {
+            var scroll = new LocomotiveScroll({
+                el: document.querySelector('[data-scroll-container]'),
+                smooth: true,
+                tablet: {
+                    smooth: true
+                },
+                smartphone: {
+                    smooth: true
+                }
+            });
+
+            scroll.on('scroll', ({
+                scroll
+            }) => {
+                const url = window.location.href;
+                const urlArr = url.split('/');
+                if ((scroll.y > 600) || (urlArr[3] !== '')) {
+                    document.querySelector('#logo').classList.remove('hide');
+                    document.querySelector('#backtotop').classList.remove('hide');
+                } else {
+                    document.querySelector('#logo').classList.add('hide');
+                    document.querySelector('#backtotop').classList.add('hide');
+                }
+            })
+
+
+        })();
+    </script>
+
+    <script src="/js/main.js?v=072426"></script>
+    <script src="/js/modal.js?v=072426"></script>
+    <script>
+        nxtItemViewer(".nxt-theme-item-viewer.first");
+        nxtItemViewer(".nxt-theme-item-viewer.second");
+        nxtItemViewer(".nxt-theme-item-viewer.third");
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+        var swiper = new Swiper(".clientsays", {
+            slidesPerView: 1,
+            spaceBetween: 10,
+            loop: true,
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            breakpoints: {
+                640: {
+                    slidesPerView: 1,
+                    spaceBetween: 20,
+                },
+                768: {
+                    slidesPerView: 1,
+                    spaceBetween: 40,
+                },
+                1024: {
+                    slidesPerView: 2,
+                    spaceBetween: 50,
+                },
+            },
+        });
+    </script>
+
+
+
+
+</body>
+
+</html>
